@@ -23,20 +23,6 @@ const Calendar: React.FC = () => {
   };
 
   const weekdaysShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  // const months = [
-  //   'January',
-  //   'February',
-  //   'March',
-  //   'April',
-  //   'May',
-  //   'June',
-  //   'July',
-  //   'August',
-  //   'September',
-  //   'October',
-  //   'November',
-  //   'December',
-  // ];
 
   const renderDays = () => {
     const monthStart = currentMonth.startOf('month');
@@ -68,7 +54,7 @@ const Calendar: React.FC = () => {
   };
 
   return (
-    <div className="max-w-xs mx-auto">
+    <div className=" bg-white shadow-md rounded-md w-full h-full">
       <div className="flex justify-between items-center mb-4">
         <button onClick={handlePrevMonth}>
           <ChevronLeftIcon className="h-6 w-6" />

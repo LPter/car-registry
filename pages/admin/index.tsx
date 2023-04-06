@@ -9,42 +9,11 @@ import {
   TableCellsIcon,
   UserCircleIcon,
 } from '@heroicons/react/20/solid';
-import dayjs from 'dayjs';
 import { useState, SVGProps } from 'react';
-import Calendar from '../../components/Calender';
 import styles from '../../styles/SidebarScroll.module.css';
-
-interface item {
-  id: number;
-  title: string;
-  icon: React.ReactElement<SVGProps<SVGSVGElement>>;
-}
-
-function Content({ selectedItem }: { selectedItem: item }) {
-  switch (selectedItem?.id) {
-    case 1:
-      return (
-        <>
-          <p>Some other content specific to item 1</p>
-          <Calendar />
-        </>
-      );
-    case 2:
-      return (
-        <>
-          <p>Some other content specific to item 2</p>
-        </>
-      );
-    case 3:
-      return (
-        <>
-          <p>Some other content specific to item 3</p>
-        </>
-      );
-    default:
-      return <p>Please select an item from the sidebar</p>;
-  }
-}
+import React from 'react';
+import Content from '../../components/Content';
+import item from '../../types';
 
 const Admin = () => {
   const [open, setOpen] = useState(true);
@@ -57,10 +26,6 @@ const Admin = () => {
     { id: 6, title: 'Analytics', icon: <ChartBarIcon width={25} height={25} /> },
     { id: 7, title: 'Files ', icon: <FolderIcon width={25} height={25} /> },
     { id: 8, title: 'Setting', icon: <Cog8ToothIcon width={25} height={25} /> },
-    { id: 8, title: 'Setting', icon: <Cog8ToothIcon width={25} height={25} /> },
-    { id: 8, title: 'Setting', icon: <Cog8ToothIcon width={25} height={25} /> },
-    { id: 8, title: 'Setting', icon: <Cog8ToothIcon width={25} height={25} /> },
-    { id: 8, title: 'Setting', icon: <Cog8ToothIcon width={25} height={25} /> },
   ];
   const [selectedItem, setSelectedItem] = useState(Menu[0]);
 
@@ -69,8 +34,8 @@ const Admin = () => {
   }
 
   return (
-    <div className="flex overflow-auto">
-      <div className={` ${open ? 'w-72' : 'w-20 '} bg-purple-900 p-5  pt-8 relative duration-300 h-full`}>
+    <div className="flex min-h-screen">
+      <div className={` ${open ? 'w-72' : 'w-20 '} bg-purple-900 p-5 pt-8 relative duration-300`}>
         <ChevronRightIcon
           className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple fill-white bg-black
            border-2 rounded-full  ${!open && 'rotate-180'}`}
@@ -105,7 +70,7 @@ const Admin = () => {
           ))}
         </ul>
       </div>
-      <div className="h-screen flex-1 p-7">
+      <div className="flex-1 p-7">
         <Content selectedItem={selectedItem}></Content>
       </div>
     </div>

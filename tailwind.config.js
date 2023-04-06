@@ -1,12 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
- 
+    './app/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+
     // Or if using `src` directory:
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './src/**/*.{js,ts,jsx,tsx}',
   ],
   variants: {
     extend: {
@@ -14,7 +14,12 @@ module.exports = {
     },
   },
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        // Simple 16 column grid
+        autoFit: 'repeat( auto-fit, minmax(150px, 1fr) )',
+      },
+    },
   },
   plugins: [],
-}
+};

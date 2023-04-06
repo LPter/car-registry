@@ -24,4 +24,12 @@
                 md:w-28 md:pl-10 md:text-center
                 lg:w-20 lg:pl-5 lg:text-center;
   }
+
+  .gridContainer {
+    @apply grid grid-cols-autoFit gap-2 w-full h-full;
+  }
+
+  .gridItem {
+    @apply h-[370px] w-full bg-white shadow-md rounded-md;
+  }
 }
