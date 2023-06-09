@@ -26,10 +26,10 @@
   }
 
   .gridContainer {
-    @apply grid grid-cols-autoFit gap-2 w-full h-full;
+    @apply grid grid-cols-autoFitCol gap-2 w-full h-full;
   }
 
   .gridItem {
-    @apply h-[370px] w-full bg-white shadow-md rounded-md;
+    @apply w-full bg-white shadow-md rounded-md;
   }
 }

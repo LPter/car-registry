@@ -2,7 +2,7 @@ import { Menu, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import { useRecoilState } from 'recoil';
-import { dataMenuDropdown } from '../atoms/modelAtom';
+import { dataMenuDropdown } from '../../atoms/modelAtom';
 
 interface Props {
   onDataUpdate: (newData: string) => void;
