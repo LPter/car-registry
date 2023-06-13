@@ -40,34 +40,36 @@ export function handleVehicleStatistics(cars: Car[], inspections: Inspection[]):
   
     // Count inspected and expired cars
     for (const car of cars) {
-        const inspectionInfo = inspections.find(info => info.CarId === car.id);
+        const inspectionInfo = inspections.find(info => info.CarId === car.id );
         if (inspectionInfo) {
-            if (car.createdAt >= sixMonthsAgo) {
-            const monthName = car.createdAt.toLocaleString('en-us', { month: 'long' });
+          if (new Date(car.createdAt) >= sixMonthsAgo) {
+            const monthName = new Date(car.createdAt).toLocaleString('en-us', { month: 'long' });
+            
             months[monthName].inspectedCars++;
-            }
-            if (inspectionInfo.expirationDate >= sixMonthsAgo) {
+          }
+          if (inspectionInfo.expirationDate >= sixMonthsAgo) {
             const monthName = inspectionInfo.expirationDate.toLocaleString('en-us', { month: 'long' });
             months[monthName].expiredCars++;
-            }
+          }
     
-            if (car.createdAt >= sixQuartersAgo) {
-            const quarterName = `Q${Math.ceil((car.createdAt.getMonth() + 1) / 3)} ${car.createdAt.getFullYear()}`;
+          if (new Date(car.createdAt) >= sixQuartersAgo) {
+            const quarterName = `Q${Math.ceil((new Date(car.createdAt).getMonth() + 1) / 3)} ${new Date(car.createdAt).getFullYear()}`;
+            
             quarters[quarterName].inspectedCars++;
-            }
-            if (inspectionInfo.expirationDate >= sixQuartersAgo) {
+          }
+          if (inspectionInfo.expirationDate >= sixQuartersAgo) {
             const quarterName = `Q${Math.ceil((inspectionInfo.expirationDate.getMonth() + 1) / 3)} ${inspectionInfo.expirationDate.getFullYear()}`;
             quarters[quarterName].expiredCars++;
-            }
+          }
     
-            if (car.createdAt >= sixYearsAgo) {
-            const yearName = car.createdAt.getFullYear().toString();
+          if (new Date(car.createdAt) >= sixYearsAgo) {
+            const yearName = new Date(car.createdAt).getFullYear().toString();
             years[yearName].inspectedCars++;
-            }
-            if (inspectionInfo.expirationDate >= sixYearsAgo) {
+          }
+          if (inspectionInfo.expirationDate >= sixYearsAgo) {
             const yearName = inspectionInfo.expirationDate.getFullYear().toString();
             years[yearName].expiredCars++;
-            }
+          }
         }
     }
   

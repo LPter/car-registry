@@ -1,13 +1,8 @@
-enum isDeleted {
-    false = 0,
-    true = 1,
-}
-
 export interface Inspection {
     id: number,
     certificate: string, 
     expirationDate: Date,
-    isDeleted: isDeleted, 
+    isDeleted: boolean, 
     createdAt: Date,
     updatedAt: Date, 
     CarId: number,

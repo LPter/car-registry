@@ -1,19 +1,27 @@
 import axiosClient from './axios-client'
 
+interface fileUpload {
+	file: FormData,
+}
+
 export const carApi = {
-	getListCar() {
-		return axiosClient.get('/cars')
+	searchCar(number:string) {
+		return axiosClient.get(`/cars/${number}`)
 	},
 
-    searchCar(number:number) {
-		return axiosClient.get('/cars/:number')
+	addCar(payload:any) {
+		return axiosClient.post('/cars', payload)
 	},
 
-	uploadCars() {
-		return axiosClient.post('/users/logout')
+	editCar(payload:any, id:number) {
+		return axiosClient.put(`/cars/${id}`, payload)
 	},
-    
-    // addCar() {
-    //     return axiosClient.post('/cars')
-    // }
+
+	deleteCar(id:number) {
+		return axiosClient.delete(`/cars/${id}`)
+	},
+
+	uploadCars(payload: fileUpload) {
+		return axiosClient.post('/cars/upload', payload)
+	},
 }

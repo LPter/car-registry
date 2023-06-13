@@ -1,34 +1,120 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { carApi, userApi } from '../../api-client';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { inspectionApi } from '../../api-client/inspection-api';
+import { ownerApi } from '../../api-client/owner-api';
+import { Car, Inspection, Owner, User } from '../../models';
 
 interface Field {
   name: string;
   label: string;
   type: string;
+  id?: string;
+  value?: string;
+  placeholder?: string;
 }
 
 interface Props {
   title: string;
   fields: Field[];
-//   onSubmit: (formData: any) => void;
+  onSubmit: (formData: any) => void;
   onClose: () => void;
+  type: string,
+  defaultValue?: any,
+  id: number,
 }
 
-const GenericForm: React.FC<Props> = ({ title, fields, onClose }) => {
-  const [formData, setFormData] = useState<any>({});
-
+const GenericForm: React.FC<Props> = ({ title, fields, onSubmit, onClose, type, defaultValue, id }) => {
+  const [formData, setFormData] = useState<any>(defaultValue);
+  const optionsToast = {
+    onOpen: onClose,
+  }
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // onSubmit(formData);
+    if (type === 'Create New Car') {
+      try {
+        const response = await carApi.addCar(formData);
+        if (response) {
+          toast.success(`${type} Success`, optionsToast)
+        }
+      } catch (error:any) {
+        toast.error(`${type} Faild ${error}`, optionsToast)
+      }
+    } else if (type === 'Create New User') {
+      try {
+        const response = await userApi.addUser(formData);
+        if (response) {
+          toast.success(`${type} Success`, optionsToast)
+        }
+      } catch (error:any) {
+        toast.error(`${type} Faild ${error}`, optionsToast)
+      }
+    } else if (type === 'Create New Inspection') {
+      try {
+        const response = await inspectionApi.addInspection(formData);
+        if (response) {
+          toast.success(`${type} Success`, optionsToast)
+        }
+      } catch (error:any) {
+        toast.error(`${type} Faild ${error}`, optionsToast)
+      }
+    } else if (type === 'Create New Owner') {
+      try {
+        const response = await ownerApi.addOwner(formData);
+        if (response) {
+          toast.success(`${type} Success`, optionsToast)
+        }
+      } catch (error:any) {
+        toast.error(`${type} Faild ${error}`, optionsToast)
+      }
+    } else if (type === 'Edit Car') {
+      try {
+        const response = await carApi.editCar(formData, id);
+        if (response) {
+          toast.success(`${type} Success`, optionsToast)
+        }
+      } catch (error:any) {
+        toast.error(`${type} Faild ${error}`, optionsToast)
+      }
+    } else if (type === 'Edit Inspection') {
+      try {
+        const response = await inspectionApi.editInspection(formData, id);
+        if (response) {
+          toast.success(`${type} Success`, optionsToast)
+        }
+      } catch (error:any) {
+        toast.error(`${type} Faild ${error}`, optionsToast)
+      }
+    } else if (type === 'Edit Owner') {
+      try {
+        const response = await ownerApi.editOwner(formData, id);
+        if (response) {
+          toast.success(`${type} Success`, optionsToast)
+        }
+      } catch (error:any) {
+        toast.error(`${type} Faild ${error}`, optionsToast)
+      }
+    } else if (type === 'Edit User') {
+      try {
+        const response = await userApi.editUser(formData, id);
+        if (response) {
+          toast.success(`${type} Success`, optionsToast)
+        }
+      } catch (error:any) {
+        toast.error(`${type} Faild ${error}`, optionsToast)
+      }
+    }
   };
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
       <form onSubmit={handleSubmit} className="bg-white w-full max-w-md mx-auto p-4 rounded shadow-lg">
-        <div className="flex justify-between mb-4">
+        <div className="flex justify-between mb-4 items-center">
           <h2 className="text-2xl font-bold">{title}</h2>
           <button
             type="button"
@@ -58,8 +144,8 @@ const GenericForm: React.FC<Props> = ({ title, fields, onClose }) => {
               name={field.name}
               value={formData[field.name] || ''}
               onChange={handleChange}
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder=" " 
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder= " "
               autoComplete="off"
               required
             />
@@ -67,7 +153,7 @@ const GenericForm: React.FC<Props> = ({ title, fields, onClose }) => {
           </div>
         ))}
         <div className="flex justify-end">
-          <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"> 
             Submit
           </button>
         </div>

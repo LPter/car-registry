@@ -1,11 +1,13 @@
-import Header from "../components/common/Header";
+import { Inter } from 'next/font/google'
+import Home1 from '../pages/home'
 
-const Home = () => {
-    return ( 
-        <div className=''>
-            <Header />
-        </div> 
-    );
+const inter = Inter({ subsets: ['latin'] })
+
+export default function Home() {
+  return (
+    <>
+      <Home1/>
+     
+    </>
+  )
 }
- 
-export default Home;

@@ -9,6 +9,7 @@ import DialogUI from '../components/common/alert/DialogUI';
 import AlertProvider from '../components/common/alert/AlertProvider';
 import { SWRConfig } from 'swr';
 import axiosClient from '../api-client/axios-client';
+import '../styles/Home.css'
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
 

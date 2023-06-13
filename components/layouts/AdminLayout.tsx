@@ -51,12 +51,7 @@ export function AdminLayout ({ children } : LayoutProps) {
             onClick={() => setOpen(!open)}
           />
           <div className="flex gap-x-4 items-center">
-            <img
-              src="https://rb.gy/ulxxee"
-              width={50}
-              height={50}
-              className={`cursor-pointer duration-500 ${open && 'rotate-[360deg]'}`}
-            />
+            <Image src="/logoweb.png" alt="alternative" width="110" height="500" className={`h-8 cursor-pointer duration-500 ${open && 'rotate-[360deg]'}`} />
             <h1 className={`text-white origin-left font-medium text-xl duration-200 ${!open && 'scale-0'}`}>{`${profile?.centreType}`}</h1>
           </div>
           <ul

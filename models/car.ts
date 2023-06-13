@@ -1,8 +1,3 @@
-enum isDeleted {
-    false = 0,
-    true = 1,
-}
-
 export interface Car {
     id: number,
     number: string,
@@ -12,7 +7,7 @@ export interface Car {
     engineType: string, 
     fuelType: string, 
     purpose: string,
-    isDeleted: isDeleted,
+    isDeleted: boolean,
     createdAt: Date,
     updatedAt: Date,
 }

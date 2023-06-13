@@ -4,6 +4,12 @@ import useSWR from 'swr'
 
 // Auth --> Protected Pages
 // <Auth>{children}</Auth>
+
+interface payload {
+	username: string,
+	password: string,
+}
+
 export function useAuth(options?: Partial<PublicConfiguration>) {
 	const {
 		data: profile,
@@ -17,12 +23,10 @@ export function useAuth(options?: Partial<PublicConfiguration>) {
 
 	const firstLoading = profile === undefined && error === undefined
 
-	async function login() {
-		await authApi.login({
-			username: 'center1',
-			password: '12345678',
-		})
-
+	async function login(payload: payload) {
+		const res = await authApi.login(payload)
+		console.log(res);
+		
 		await mutate()
 	}
 

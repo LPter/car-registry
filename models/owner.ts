@@ -2,18 +2,12 @@ enum typeOwner {
     Individual = 'individual',
     Organization = 'organization',
 }
-
-enum isDeleted {
-    false = 0,
-    true = 1,
-}
-
 export interface Owner {
-    id: Int16Array,
+    id: number,
     type: typeOwner,
     name: string, 
     address: string, 
-    isDeleted: isDeleted,
+    isDeleted: boolean,
     createdAt: Date, 
     updatedAt: Date,
 }

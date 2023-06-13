@@ -1,0 +1,227 @@
+body,
+p {
+    color: #6b747b;
+    /* font: 400 1rem/1.625rem "Open Sans", sans-serif; */
+}
+
+h1 {
+    color: #252c38;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 3.125rem;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    color: #252c38;
+    font-weight: 700;
+    font-size: 2.125rem;
+    line-height: 2.625rem;
+    letter-spacing: -0.4px;
+}
+
+h3 {
+    color: #252c38;
+    font-weight: 700;
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+    letter-spacing: -0.3px;
+}
+
+h4 {
+    color: #252c38;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    letter-spacing: -0.2px;
+}
+
+h5 {
+    color: #252c38;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+}
+
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*****************/
+/*    Header     */
+/*****************/
+.header {
+    background: linear-gradient(rgba(197, 234, 249, 1), rgba(255, 255, 255, 1));
+}
+
+/********************/
+/*     Features     */
+/********************/
+.cards-1 {
+    padding-top: 4rem;
+    padding-bottom: 1.5rem;
+    text-align: center;
+    background-color: #ffff;
+}
+
+.cards-1 .card {
+    margin-bottom: 3.5rem;
+
+    padding: 3.125rem 1rem 2.125rem 1rem;
+    border: none;
+    border-radius: 16px;
+    background-color: #f1f9fc;
+}
+
+.cards-1 .card-image {
+    margin-bottom: 1.5rem;
+}
+
+.cards-1 .card-image img {
+    width: 70px;
+    height: 70px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.cards-1 .card-body {
+    padding: 0;
+}
+
+.cards-1 .card-title {
+    margin-bottom: 0.375rem;
+}
+
+/******************/
+/*     Footer     */
+/******************/
+.footer {
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+    background: linear-gradient(rgba(255, 255, 255, 1), rgba(197, 234, 249, 1));
+    text-align: center;
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+/*************************/
+/*     Media Queries     */
+/*************************/
+
+/* Min-width 768px */
+@media (min-width: 768px) {
+    /* Extra Pages */
+    .ex-basic-1 .text-box {
+        padding: 1.75rem 2rem 0.875rem 2rem;
+    }
+    /* end of extra pages */
+}
+/* end of min-width 768px */
+
+/* Min-width 1024px */
+@media (min-width: 1024px) {
+    /* General Styles */
+
+    .btn-solid-lg {
+        margin-right: 0.5rem;
+        margin-left: 0;
+    }
+
+    /* end of general styles */
+
+    /* Navigation */
+    .navbar {
+        background-color: transparent;
+        flex-wrap: nowrap;
+        justify-content: start;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 1.75rem;
+    }
+
+    .navbar-collapse {
+        flex-basis: auto;
+    }
+
+    .navbar.top-nav-collapse {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        background-color: #f1f9fc;
+    }
+
+    .offcanvas-collapse {
+        position: static;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        width: auto;
+        padding-right: 0;
+        padding-left: 0;
+        background-color: transparent;
+        overflow-y: visible;
+        visibility: visible;
+    }
+
+    .offcanvas-collapse.open {
+        -webkit-transform: none;
+        transform: none;
+    }
+
+    .nav-link {
+        padding-right: 0.625rem;
+        padding-left: 0.625rem;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        margin-top: 0.25rem;
+        box-shadow: 0 3px 3px 1px rgba(0, 0, 0, 0.05);
+    }
+
+    .dropdown-divider {
+        width: 90%;
+    }
+
+    /* end of navigation */
+
+    /* Features */
+    .cards-1 .card {
+        display: inline-block;
+        width: 306px;
+        vertical-align: top;
+    }
+    /* end of features */
+}
+/* end of min-width 1024px */
+
+/* Min-width 1280px */
+@media (min-width: 1280px) {
+    /* General Styles */
+    .h1-large {
+        font-size: 3.125rem;
+        line-height: 3.75rem;
+    }
+
+    .container {
+        max-width: 72rem;
+    }
+    /* end of general styles */
+
+    /* Features */
+    .cards-1 .card {
+        width: 342px;
+        padding-right: 2.875rem;
+        padding-left: 2.875rem;
+    }
+
+    .cards-1 .card:nth-of-type(3n + 2) {
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
+    }
+    /* end of features */
+}
+/* end of min-width 1200px */
